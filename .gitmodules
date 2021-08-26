@@ -21,7 +21,7 @@
 
 # Intelligent Quads Repos
 [submodule "catkin_ws/src/iq_gnc"]
-	path = catkin_ws/src/iq_gnc
+	path = catkin_ws/src/monash_motion
 	url = git@github.com:Yun-Zou/iq_gnc.git
 [submodule "catkin_ws/src/iq_sim"]
 	path = catkin_ws/src/iq_sim
