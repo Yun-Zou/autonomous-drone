@@ -7,10 +7,6 @@
 	path = catkin_ws/src/monash_perception
 	url = git@github.com:Yun-Zou/monash_perception.git
 	branch = main
-[submodule "catkin_ws/src/monash_motion"]
-	path = catkin_ws/src/monash_motion
-	url = git@github.com:Yun-Zou/monash_motion.git
-	branch = main
 
 # Gazebo Plugin
 [submodule "catkin_ws/src/realsense_ros_gazebo"]
@@ -61,3 +57,6 @@
 [submodule "catkin_ws/src/t265_depth"]
 	path = catkin_ws/src/t265_depth
 	url = git@github.com:tiralonghipol/t265_depth.git
+[submodule "catkin_ws/src/vision_opencv"]
+	path = catkin_ws/src/vision_opencv
+	url = git@github.com:ros-perception/vision_opencv
