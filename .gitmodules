@@ -1,0 +1,34 @@
+# Monash Project Repos 
+[submodule "catkin_ws/src/monash_main"]
+	path = catkin_ws/src/monash_main
+	url = git@github.com:Yun-Zou/monash_main.git	
+[submodule "catkin_ws/src/monash_perception"]
+	path = catkin_ws/src/monash_perception
+	url = git@github.com:Yun-Zou/monash_perception.git
+[submodule "catkin_ws/src/monash_motion"]
+	path = catkin_ws/src/monash_motion
+	url = git@github.com:Yun-Zou/monash_motion.git
+
+[submodule "catkin_ws/src/realsense_ros_gazebo"]
+	path = catkin_ws/src/realsense_ros_gazebo
+	url = git@github.com:nilseuropa/realsense_ros_gazebo.git
+
+# Vision to Mavros Repo 
+[submodule "catkin_ws/src/vision_to_mavros"]
+	path = catkin_ws/src/vision_to_mavros
+	url = git@github.com:thien94/vision_to_mavros.git
+
+# Intelligent Quads Repos
+[submodule "catkin_ws/src/iq_gnc"]
+	path = catkin_ws/src/iq_gnc
+	url = git@github.com:Intelligent-Quads/iq_gnc.git
+[submodule "catkin_ws/src/iq_sim"]
+	path = catkin_ws/src/iq_sim
+	url = git@github.com:Intelligent-Quads/iq_sim.git
+
+[submodule "catkin_ws/src/ddynamic_reconfigure"]
+	path = catkin_ws/src/ddynamic_reconfigure
+	url = git@github.com:pal-robotics/ddynamic_reconfigure
+[submodule "catkin_ws/src/realsense-ros"]
+	path = catkin_ws/src/realsense-ros
+	url = git@github.com:IntelRealSense/realsense-ros.git
