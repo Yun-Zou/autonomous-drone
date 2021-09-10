@@ -1,14 +1,18 @@
 # Monash Project Repos 
 [submodule "catkin_ws/src/monash_main"]
 	path = catkin_ws/src/monash_main
-	url = git@github.com:Yun-Zou/monash_main.git	
+	url = git@github.com:Yun-Zou/monash_main.git
+	branch = main
 [submodule "catkin_ws/src/monash_perception"]
 	path = catkin_ws/src/monash_perception
 	url = git@github.com:Yun-Zou/monash_perception.git
+	branch = main
 [submodule "catkin_ws/src/monash_motion"]
 	path = catkin_ws/src/monash_motion
 	url = git@github.com:Yun-Zou/monash_motion.git
+	branch = main
 
+# Gazebo Plugin
 [submodule "catkin_ws/src/realsense_ros_gazebo"]
 	path = catkin_ws/src/realsense_ros_gazebo
 	url = git@github.com:nilseuropa/realsense_ros_gazebo.git
@@ -17,18 +21,37 @@
 [submodule "catkin_ws/src/vision_to_mavros"]
 	path = catkin_ws/src/vision_to_mavros
 	url = git@github.com:thien94/vision_to_mavros.git
+	branch = master
 
 # Intelligent Quads Repos
 [submodule "catkin_ws/src/iq_gnc"]
 	path = catkin_ws/src/iq_gnc
-	url = git@github.com:Intelligent-Quads/iq_gnc.git
+	url = git@github.com:Yun-Zou/iq_gnc.git
 [submodule "catkin_ws/src/iq_sim"]
 	path = catkin_ws/src/iq_sim
 	url = git@github.com:Intelligent-Quads/iq_sim.git
+	branch = master
 
+# Realsense
 [submodule "catkin_ws/src/ddynamic_reconfigure"]
 	path = catkin_ws/src/ddynamic_reconfigure
 	url = git@github.com:pal-robotics/ddynamic_reconfigure
+	branch = kinetic-devel
 [submodule "catkin_ws/src/realsense-ros"]
 	path = catkin_ws/src/realsense-ros
 	url = git@github.com:IntelRealSense/realsense-ros.git
+	branch = 2.2.11
+
+# MAV
+[submodule "catkin_ws/src/mavros"]
+	path = catkin_ws/src/mavros
+	url = git@github.com:mavlink/mavros.git
+	branch = 1.8.0
+
+[submodule "catkin_ws/src/mavlink"]
+	path = catkin_ws/src/mavlink
+	url = git@github.com:mavlink/mavlink-gbp-release.git
+	branch = release/melodic/mavlink/2021.7.7-1
+
+
+
