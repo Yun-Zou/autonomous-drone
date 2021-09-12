@@ -51,4 +51,3 @@ qtcreator-*
 
 # Catkin custom files
 CATKIN_IGNORE
-catkin_ws/src/realsense2_camera/package.xml
