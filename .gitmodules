@@ -48,10 +48,7 @@
 	url = git@github.com:mavlink/mavros.git
 	branch = 1.8.0
 
-[submodule "catkin_ws/src/mavlink"]
-	path = catkin_ws/src/mavlink
+[submodule "catkin_ws/src/mavlink-gbp-release"]
+	path = catkin_ws/src/mavlink-gbp-release
 	url = git@github.com:mavlink/mavlink-gbp-release.git
 	branch = release/melodic/mavlink/2021.7.7-1
-
-
-
