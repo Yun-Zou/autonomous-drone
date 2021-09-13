@@ -52,3 +52,9 @@
 	path = catkin_ws/src/mavlink-gbp-release
 	url = git@github.com:mavlink/mavlink-gbp-release.git
 	branch = release/melodic/mavlink/2021.7.7-1
+[submodule "catkin_ws/src/apriltag"]
+	path = catkin_ws/src/apriltag
+	url = git@github.com:AprilRobotics/apriltag.git
+[submodule "catkin_ws/src/apriltag_ros"]
+	path = catkin_ws/src/apriltag_ros
+	url = git@github.com:AprilRobotics/apriltag_ros.git
