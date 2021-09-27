@@ -58,3 +58,6 @@
 [submodule "catkin_ws/src/apriltag_ros"]
 	path = catkin_ws/src/apriltag_ros
 	url = git@github.com:AprilRobotics/apriltag_ros.git
+[submodule "catkin_ws/src/t265_depth"]
+	path = catkin_ws/src/t265_depth
+	url = git@github.com:tiralonghipol/t265_depth.git
