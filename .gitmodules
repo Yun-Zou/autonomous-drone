@@ -60,3 +60,6 @@
 [submodule "catkin_ws/src/vision_opencv"]
 	path = catkin_ws/src/vision_opencv
 	url = git@github.com:ros-perception/vision_opencv
+[submodule "catkin_ws/src/arni"]
+	path = catkin_ws/src/arni
+	url = git@github.com:ROS-PSE/arni.git
