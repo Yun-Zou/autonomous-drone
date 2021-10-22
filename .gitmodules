@@ -63,3 +63,9 @@
 [submodule "catkin_ws/src/arni"]
 	path = catkin_ws/src/arni
 	url = git@github.com:ROS-PSE/arni.git
+[submodule "catkin_ws/src/async_web_server_cpp"]
+	path = catkin_ws/src/async_web_server_cpp
+	url = git@github.com:sfalexrog/async_web_server_cpp.git
+[submodule "catkin_ws/src/web_video_server"]
+	path = catkin_ws/src/web_video_server
+	url = git@github.com:RobotWebTools/web_video_server.git
