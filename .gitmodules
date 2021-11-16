@@ -7,12 +7,7 @@
 	path = catkin_ws/src/monash_perception
 	url = git@github.com:Yun-Zou/monash_perception.git
 	branch = main
-
-# Gazebo Plugin
-[submodule "catkin_ws/src/realsense_ros_gazebo"]
-	path = catkin_ws/src/realsense_ros_gazebo
-	url = git@github.com:nilseuropa/realsense_ros_gazebo.git
-
+	
 # Vision to Mavros Repo 
 [submodule "catkin_ws/src/vision_to_mavros"]
 	path = catkin_ws/src/vision_to_mavros
@@ -23,10 +18,6 @@
 [submodule "catkin_ws/src/iq_gnc"]
 	path = catkin_ws/src/monash_motion
 	url = git@github.com:Yun-Zou/iq_gnc.git
-[submodule "catkin_ws/src/iq_sim"]
-	path = catkin_ws/src/iq_sim
-	url = git@github.com:Intelligent-Quads/iq_sim.git
-	branch = master
 
 # Realsense
 [submodule "catkin_ws/src/ddynamic_reconfigure"]
