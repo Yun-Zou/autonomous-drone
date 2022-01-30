@@ -27,18 +27,57 @@ git clone git@github.com:Yun-Zou/autonomous-drone.git
 ````
 
 # Installing for Nvidia Nano
-Flash your Nvidia Nano with Jetpack 4.3 (Tested with 4.3)
+Flash your Nvidia Nano with Jetpack (Tested with Jetpack 4.3)
 
+Run the following scripts to install your files. These may become out of date as time goes on so please fix them up if you notice something wrong.
 
+`
+cd ${HOME}/autonomous-drone/scripts
+git checkout main
+git pull origin main
+
+./install_ROS.sh
+./install_catkin.sh
+./install_ardupilot.sh
+./install_ardupilot.sh
+./installLibrealsense.sh
+./installRealSenseROS.sh
+./install_arni.sh
+
+git submodule sync --recursive
+git submodule update --init --remote --recursive
+
+cd ${HOME}/autonomous-drone/catkin_ws/
+catkin build
+`
 
 # Installing for Computer
 Installing this workspace on your computer will let you develop the packages easier, run simulations on Gazebo and monitor/command the drone with the monitoring app.
 
-Be familiar with ROS and Catkin
 To install, get this repo and then run 
 
-# How to Run
+`
+cd ${HOME}/autonomous-drone/scripts
+git checkout main
+git pull origin main
 
+./install_ROS.sh
+./install_catkin.sh
+./install_ardupilot.sh
+./install_gazebo.sh
+./installLibrealsense.sh
+./installRealSenseROS.sh
+./install_arni.sh
+
+git submodule sync --recursive
+git submodule update --init --remote --recursive
+
+cd ${HOME}/autonomous-drone/catkin_ws/
+catkin build
+`
+
+# How to Run
+Read the OPERATING_GUIDE.md
 
 # Ground Control Stations
 [Ground Control Stations](https://ardupilot.org/copter/docs/common-choosing-a-ground-station.html) are useful and not discussed much in the report as they are not strictly necessary for autonomous flight but they are very uesful for manual flight, testing and making changes to the Ardupilot configuration. The one that was used in 2021 was Mission Planner which runs on Windows. There is also QGroundControl and APM Planner which also runs on Linux distributions. 
@@ -113,7 +152,14 @@ git config --global core.excludesfile ~/.gitignore_global
  - --background-index
  - -j=4
 
-# Common Issues and Fixes
 
-
-# Future Work
+## Future Work and Bugs
+- Convert the detected AprilTag into local frame coordinates properly in found_target() in PerceptionController.cpp
+- Find more reliable detection settings for apriltags
+- Use neural networks for detection at high altitudes
+- Optimise to use the Graphics card instead of the CPU for these tasks
+- Incorporate an additional better camera which can track better
+- Fully incorporate flight parameters from configs into flightalgorithm.cpp
+- Create more flight modes
+- Write a more robust search algorithm
+- Create and tune GPS and non-GPS Mission Planner parameters
