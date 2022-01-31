@@ -1,4 +1,7 @@
 # autonomous-drone
+
+(TO DO. Image)
+
 FYP Project at Monash. Creating an autonomous DIY drone platform running on Ardupilot. Originally developed by Yun Zou (yunzou2@gmail.com) in 2021, supervised by Dr Wesley Chan (wesley.chan@monash.edu) and Calvin Vong (calvin.vong@monash.edu). There is also an accompanying set of resources in a Google Drive (contact supervisors for access).
 
 This drone platform uses a Nvidia Jetson Nano as a companion computer on the drone with a Pixhawk Flight Controller controlling hardware and running ArduPilot flight software. Notably, also uses the T265 Intel RealSense Camera for grayscale stereo fisheye imaging and receives position data from its onboard Visual Inertial Odometry computing unit as well. A **very helpful** online resource that I relied on were these [forum posts](https://discuss.ardupilot.org/t/integration-of-ardupilot-and-vio-tracking-camera-part-1-getting-started-with-the-intel-realsense-t265-on-rasberry-pi-3b/43162). That contributer has many other great form posts which you can have a look at.
@@ -6,6 +9,8 @@ This drone platform uses a Nvidia Jetson Nano as a companion computer on the dro
 This workspace helps integrate many of the hardware components (Pixhawk, Nvidia Jetson Nano and Intel T265) so they can communicate together how we want. It also controls many of the autonomous flight features and computer vision. It is made up of both open-source libraries and customised self-written ones. The self-written ones are prepended with `monash-xxx`.
 
 This platform is built on top of the open-source autopilot software platform ArduPilot running the Copter version (ArduCopter). It's very powerful and worth reading the docs to understand it more. [ArduCopter](https://ardupilot.org/copter/docs/introduction.html). [ArduPilot with ROS](https://ardupilot.org/dev/docs/ros.html).
+
+There are more indepth README.md files in the individual packages if you are interested.
 
 To use this workspace, it is expected that you know the basics of Linux, ROS, Git and Catkin. 
 
@@ -31,7 +36,7 @@ Flash your Nvidia Nano with Jetpack (Tested with Jetpack 4.3)
 
 Run the following scripts to install your files. These may become out of date as time goes on so please fix them up if you notice something wrong.
 
-`
+````
 cd ${HOME}/autonomous-drone/scripts
 git checkout main
 git pull origin main
@@ -49,14 +54,14 @@ git submodule update --init --remote --recursive
 
 cd ${HOME}/autonomous-drone/catkin_ws/
 catkin build
-`
+````
 
 # Installing for Computer
 Installing this workspace on your computer will let you develop the packages easier, run simulations on Gazebo and monitor/command the drone with the monitoring app.
 
 To install, get this repo and then run 
 
-`
+````
 cd ${HOME}/autonomous-drone/scripts
 git checkout main
 git pull origin main
@@ -74,12 +79,15 @@ git submodule update --init --remote --recursive
 
 cd ${HOME}/autonomous-drone/catkin_ws/
 catkin build
-`
+````
 
 # How to Run
 Read the OPERATING_GUIDE.md
 
 # Ground Control Stations
+
+(TO DO. Image)
+
 [Ground Control Stations](https://ardupilot.org/copter/docs/common-choosing-a-ground-station.html) are useful and not discussed much in the report as they are not strictly necessary for autonomous flight but they are very uesful for manual flight, testing and making changes to the Ardupilot configuration. The one that was used in 2021 was Mission Planner which runs on Windows. There is also QGroundControl and APM Planner which also runs on Linux distributions. 
 
 Something that you may do is change [Ardupilot configurations](https://ardupilot.org/copter/docs/parameters.html) to tune the flight, change hardware configurations and autopilot settings. Most you won't need to know, but some notable ones are  It would be worth understanding what some of those configurations do such as the [Extended Kalman Filter settings](https://ardupilot.org/copter/docs/common-apm-navigation-extended-kalman-filter-overview.html) among others.
@@ -106,52 +114,6 @@ This github page has a nice explanation about submodules [here, I recommend you 
 - **vision_opencv** - ROS Library Addon for OpenCV
 - **vision_to_mavros** - Important Library. Turns T265 positional data and sends it to Pixhawk. Also undistorts image 
 - **web_video_server** - Used to stream images drone to computer over an internet connection
-
-# Clang How-To
-Clangd is the smart code completion, error finding, definition retrieving plugin used for Visual Studio that was used. It isn't compulsory but it is nice to have as it works well with ROS and catkin.
-
-Install the clang ecosystem:
-```
-wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
-sudo add-apt-repository 'deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic main'
-sudo apt update
-sudo apt install -y clangd clang-format clang-tidy
-```
-
-Install the **vscode-clangd** extension, and don't forget to disable your current linter.
-
-In order for clang to correctly parse your included files, it needs a list of compile commands that are used to build the project. The easiest way to obtain this to use the standard cmake modules system from here, which will handle it automatically. Alternatively: 
-```
-catkin config --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-```
-before you `catkin build`, and then create a symlink in `your_node/` that points to `catkin_ws/build/your_node/compile_commands.json`.
-
-eg, whilst in `.../YOUR_NODE/` :
-
-```
-ln -s ${HOME}/autonomous-drone/catkin_ws/build/YOUR_NODE/compile_commands.json .
-ln -s ${HOME}/autonomous-drone/catkin_ws/src/monash_main/.clang-format .
-ln -s ${HOME}/autonomous-drone/catkin_ws/src/monash_main/.clang-tidy .
-```
-
-Create symlinks in `your_node/` that point to the `.clang-tidy` and `.clang-format` files here.
-
-The easiest way to do this is to simply run the script: ```src/monash_main/scripts/clang_links.sh```
-
-Don't forget to create a global gitignore file to ignore these new files in all your submodules
-Create a '.gitignore_global' file to the base level
-Don't forget to add `compile_commands.json`,`clangd`,`.clang-format`,`.clang-tidy` to your file
-
-```
-git config --global core.excludesfile ~/.gitignore_global
-```
-
-**clang-tidy** will run better if you add the following commands the settings of the vscode extension:
-
- - --suggest-missing-includes
- - --background-index
- - -j=4
-
 
 ## Future Work and Bugs
 - Convert the detected AprilTag into local frame coordinates properly in found_target() in PerceptionController.cpp
