@@ -52,12 +52,14 @@ It is important that you do these checks before autonomous flight tests. Any acc
 1. Submit necessary flight documents (check Monash Drone rules) a day before at least and book room.
 2. Check LiPo battery is charged and then plug in battery into drone
 3. Secure all components (mountings, propellers, battery especially) and plug in T265 and WiFi Adaptor to Jetson Nano and connect the Jetson Nano USB to Pixhawk.
-(TODO. Wiring Image)
 4. Check that no wires are loose by lightly pulling on the wires to ensure that they are secured and won't go into the path of the propellors.
 5. Upload your Misison Planner parameters or check that they are already configured as you want them
 6. *Connect with Ethernet*. Using an ethernet cable, connect the drone and your laptop. (May require some networking setup) **OR** *Connect with WiFi*. Plug in the drone into a monitor and connect to the WiFi (don't use eduroam, it doesn't allow SSH connections) and note down IP. 
 7. Connect Remote Control and establish link from computer (either SSH to IP or using Web Monitor over ROS Bridge Web Socket)
 8. Go to testing room and conduct specific tests
+
+![Wiring Diagram](/images/electrical_diagram.png)
+
 
 ## Manual Flying
 Manual flying involves you controlling the drone yourself via remote-control. Stabilize and Alt-Hold are the two ArduPilot flight modes that you will usually fly in. [Full list of ArduPilot flight modes](https://ardupilot.org/copter/docs/flight-modes.html#full-list-of-flight-modes). This assumes you are flying without GPS, so camera guided flight. With GPS, would be a bit simpler (without ROS), check the ArduPilot wiki on how to setup the Mission Planner config, however, general process is similar.
@@ -74,9 +76,12 @@ roscore
 roslaunch monash_main t265_all_nodes.launch
 ```
 4. Grab the Taranis Remote Control that is linked to the Drone and turn it on
-(TODO. Remote Picture Controls)
+
+![Remote Control](/images/remote_control.png)
+
 5. Place the drone down in your take-off area, make sure there is adequate space around
 6. Check Mission Planner status screen for any warning messages
+
 ![Mission Planner Heads Up Display](/images/mission_planner_hud.png)
 
 7. Hold the flashing red motor-interlock button until you hear a beep. This enables the motor hardware switch 
