@@ -3,9 +3,14 @@ This guide will show teach you how to operate the drone to do manual flight and 
 
 It is important before you start flying that you have your supervisor, or someone who knows how to fly to teach/accompany you for your first few flights.
 
+## Nvidia Login Details
+User:
+
+Password: nvidia2021
+
 ## tmux
 
-(TO DO. Image)
+![Tmux Split Screen](/images/tmux.png)
 
 When you are putting in commands via ssh either with ethernet of Wifi, when you leave the instance, the processes also close, and the drone will stop.
 This is why we need a persistent terminal which we can command, disconnect and still have the drone running. This is where tmux comes in.
@@ -18,6 +23,13 @@ Install it with this command on the drone
 `
 sudo apt install tmux
 `
+
+Run Tmux
+````
+tmux
+ctrl-B + " (Split Vertically)
+ctrl-B + % (Split Horizontally)
+````
 
 ## General Operating Limits
 There are some limits to how you can fly the drone, whether autonomously or manually due to hardware/software/safety/legal restrictions.
@@ -37,18 +49,15 @@ Don't act too late, better safe than sorry. Damaged drone > Injury
 ## Pre-Flight Checks
 It is important that you do these checks before autonomous flight tests. Any accident can be very dangerous to the people around and also damage the drone. We need to make sure that the hardware is correctly setup, and that the software is working.
 
-(TODO. Wiring Image)
-
 1. Submit necessary flight documents (check Monash Drone rules) a day before at least and book room.
 2. Check LiPo battery is charged and then plug in battery into drone
 3. Secure all components (mountings, propellers, battery especially) and plug in T265 and WiFi Adaptor to Jetson Nano and connect the Jetson Nano USB to Pixhawk.
+(TODO. Wiring Image)
 4. Check that no wires are loose by lightly pulling on the wires to ensure that they are secured and won't go into the path of the propellors.
 5. Upload your Misison Planner parameters or check that they are already configured as you want them
-6. Using an ethernet cable, connect the drone and your laptop. (May require some networking setup)
-7. (TODO. Login. Password)
-8. Plug in the drone into a monitor and connect to the WiFi (don't use eduroam, it doesn't allow SSH connections) and note down IP
-9. Connect Remote Control and establish link from computer (either SSH or ROS Bridge Web Socket)
-10. Go to testing room and conduct specific tests
+6. *Connect with Ethernet*. Using an ethernet cable, connect the drone and your laptop. (May require some networking setup) **OR** *Connect with WiFi*. Plug in the drone into a monitor and connect to the WiFi (don't use eduroam, it doesn't allow SSH connections) and note down IP. 
+7. Connect Remote Control and establish link from computer (either SSH to IP or using Web Monitor over ROS Bridge Web Socket)
+8. Go to testing room and conduct specific tests
 
 ## Manual Flying
 Manual flying involves you controlling the drone yourself via remote-control. Stabilize and Alt-Hold are the two ArduPilot flight modes that you will usually fly in. [Full list of ArduPilot flight modes](https://ardupilot.org/copter/docs/flight-modes.html#full-list-of-flight-modes). This assumes you are flying without GPS, so camera guided flight. With GPS, would be a bit simpler (without ROS), check the ArduPilot wiki on how to setup the Mission Planner config, however, general process is similar.
@@ -68,7 +77,8 @@ roslaunch monash_main t265_all_nodes.launch
 (TODO. Remote Picture Controls)
 5. Place the drone down in your take-off area, make sure there is adequate space around
 6. Check Mission Planner status screen for any warning messages
-(TODO. Image)
+![Mission Planner Heads Up Display](/images/mission_planner_hud.png)
+
 7. Hold the flashing red motor-interlock button until you hear a beep. This enables the motor hardware switch 
 8. Hold the left remote control stick to the bottom right until you hear the drone make a noise, arming the drone. Flick the motor switch on.
 9. Flick the flight mode toggle to the top mode, if it isn't already
@@ -82,12 +92,12 @@ roslaunch monash_main t265_all_nodes.launch
 2. Perform Pre-Flight Checks 
 3. Place the drone in the location you wish to take-off
 4. Connect to the drone with either ethernet/WiFi and in a `tmux` terminal, run these scripts
-` 
+```` 
 roscore
 roslaunch monash_main t265_all_nodes.launch
 rosservice call /mavros/set_stream_rate 0 10 1
 roslaunch monash_motion FLIGHTPLANOFCHOICE.launch
-`
+````
 5. If you want command/partner functionality from laptop, read monash_main README.md to connect to drone monitor
 6. Press the Arm Button til it stays red. The arm button is located on the side of the second level of the housing which flashes red. 
 7. Step back to a safe distance (at least 5m), and grab your remote control.
@@ -98,7 +108,17 @@ roslaunch monash_motion FLIGHTPLANOFCHOICE.launch
 
 
 ## Simulated Flight Procedure
+Navigate to the monash_main/scripts folder
+````
+roscore
+./gazebo.sh
+./startsitl.sh
+roslaunch monash_main gazebo_all_nodes.launch
+roslaunch monash_motion XXX_your_flight_plan_XXX.launch
+````
+In the `./startsitl.sh` tab, type `mode guided` to start operation
 
+![Simulation in Gazebo](/images/simulation.png)
 
 ## Mission Planner and Configs
 You may find that you want to add more sensors/flight settings are weight

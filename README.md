@@ -1,6 +1,7 @@
 # autonomous-drone
 
-(TO DO. Image)
+![Drone](/images/drone.png)
+![Poster](/images/poster_2021.jpg)
 
 FYP Project at Monash. Creating an autonomous DIY drone platform running on Ardupilot. Originally developed by Yun Zou (yunzou2@gmail.com) in 2021, supervised by Dr Wesley Chan (wesley.chan@monash.edu) and Calvin Vong (calvin.vong@monash.edu). There is also an accompanying set of resources in a Google Drive (contact supervisors for access).
 
@@ -86,7 +87,7 @@ Read the OPERATING_GUIDE.md
 
 # Ground Control Stations
 
-(TO DO. Image)
+![Mission Planner](/images/mission_planner.png)
 
 [Ground Control Stations](https://ardupilot.org/copter/docs/common-choosing-a-ground-station.html) are useful and not discussed much in the report as they are not strictly necessary for autonomous flight but they are very uesful for manual flight, testing and making changes to the Ardupilot configuration. The one that was used in 2021 was Mission Planner which runs on Windows. There is also QGroundControl and APM Planner which also runs on Linux distributions. 
 
